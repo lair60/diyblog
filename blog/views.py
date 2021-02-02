@@ -106,7 +106,6 @@ def createNewUser(request,valink):
         return render(request, 'blog/user_created.html', context)
 
 # Create your views here.
-@login_required
 def index(request):
     num_blogs=Blog.objects.all().count()
     num_authors=BlogAuthor.objects.all().count()
@@ -124,19 +123,19 @@ def index(request):
 
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-class BlogListView(LoginRequiredMixin, generic.ListView):
+class BlogListView(generic.ListView):
     model = Blog
     context_object_name = 'blog_list'   # your own name for the list as a template variable
     template_name ='blog/blog_list.html'
     paginate_by = 10
 	
-class BloggerListView(LoginRequiredMixin, generic.ListView):
+class BloggerListView(generic.ListView):
     model = BlogAuthor
     context_object_name = 'blogger_list'   # your own name for the list as a template variable
     template_name ='blog/blogger_list.html'
     paginate_by = 10
 
-class BloggerDetailView(LoginRequiredMixin, generic.ListView):
+class BloggerDetailView(generic.ListView):
     model = Blog
     paginate_by = 10
     template_name ='blog/blog_list_blogger_detail.html'
@@ -153,7 +152,7 @@ class BloggerDetailView(LoginRequiredMixin, generic.ListView):
         context['blogger'] = get_object_or_404(BlogAuthor, pk = self.kwargs['pk'])
         return context
 
-class BlogDetailView(LoginRequiredMixin, generic.DetailView):
+class BlogDetailView(generic.DetailView):
     model = Blog
 	
 class BlogCommentCreate(LoginRequiredMixin, CreateView):
