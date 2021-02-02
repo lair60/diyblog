@@ -119,7 +119,7 @@ def index(request):
     return render(
         request,
         'index.html',
-        context={'num_blogs': num_blogs, 'num_authors': num_authors, 'num_comments': num_comments, """'search_word': search_word, 'num_blog_search': num_blog_search,"""'num_visits': num_visits}
+        context={'num_blogs': num_blogs, 'num_authors': num_authors, 'num_comments': num_comments,'num_visits': num_visits}
        )
 
 from django.views import generic
