@@ -25,7 +25,7 @@ if __name__ == '__main__':
 else:
     from diyblog.utils import removeLinks
     from apscheduler.schedulers.background  import BackgroundScheduler
-    redis_url = os.environ.get('REDISTOGO_URL', 'redis://localhost:6379')
+    redis_url = os.environ.get('REDISTOGO_URL', 'redis://red-chd69c2k728tp9f132cg:6379')
     conn = redis.from_url(redis_url)
     q = Queue(connection=conn)
     sched = BackgroundScheduler()
