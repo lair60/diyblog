@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>New User Created</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  
+</head>
+
+<body>
+{% load static %}
+	<div class="header-logo"><img class="logo-django" src="{% static 'images/django-logo-negative.png' %}" /></div>
+  <div style="margin-left: 15px;margin-top: 5px;" class="container-fluid">
+
+	{% if email %}
+		<p>Thank you for your request. Please click on the link that has just been sent to your email <b>{{email}}</b> to verify your email and continue the registration process.<p>If the link is expired(after 10min aprox), please request it again.</p>
+	{% else %}
+		{% if link_sent_already %}
+			<h1>Create a new user failed</h1>
+			<p>The link has been sent already. If they haven't arrived in a few minutes, please check your spam folder.</p>
+		{% else %}
+			<h1>Create a new user failed</h1>
+            <p>The email address is already taken. Please use another email address</p>
+		{% endif %}
+    {% endif %}
+	<form action="{% url 'login' %}" method="post">
+{% csrf_token %}
+ <button type="submit" name='login' value=''><i class="fa fa-home"></i> Main Menu</button>
+ </form>
+</div>
+<footer class="footer-body">
+	<a href="https://www.luisingarivera.com" target="_blank">
+		luisingarivera.com
+	</a>
+	</footer>
+</body>
+</html>
