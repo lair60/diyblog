@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='bdkcpl46*c%a6^-m-7t_h#3ao)2xx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', False) == 'TRUE'
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["https://diyblog.onrender.com","localhost", "127.0.0.1"]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME') 
 if RENDER_EXTERNAL_HOSTNAME:    
