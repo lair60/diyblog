@@ -33,8 +33,8 @@ else:
         initialized = True
         @sched.scheduled_job('interval', minutes=1, max_instances=1)
         def timed_job():
-            """print('id clock: '+str(os.getpid()))"""
+            print('id clock: '+str(os.getpid()))
             result = q.enqueue(removeLinks)
-            """print('This job2 is run every 1 minute.')"""
+            print('This job2 is run every 1 minute.')
         def start_jobs():   
             sched.start()
