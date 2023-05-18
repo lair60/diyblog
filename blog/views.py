@@ -38,7 +38,7 @@ def SendLinkToRequestUser(request):
                                        f'<p>If you have questions or comments please email me anytime at <a href="mailto:lair60@yahoo.es" target="_blank">lair60@yahoo.es</a>.</p>'
                                        f'<p>Best regards,</p>'
                                        f'<p>Luis Inga</p>'
-                                       f'<p><a href="https://www.luisingarivera.com" target="_blank">https://www.luisingarivera.com</a></p>')
+                                       f'<p><a href="https://www.luisingarivera.online" target="_blank">https://www.luisingarivera.online</a></p>')
                     msg = EmailMessage('Validate your request', message_email_html, 'lair60@yahoo.es', [email_user])
                 
                     msg.content_subtype = "html"
@@ -86,7 +86,7 @@ def createNewUser(request,valink):
                                        f'<p>If you have questions or comments please email me anytime at <a href="mailto:lair60@yahoo.es" target="_blank">lair60@yahoo.es</a>.</p>'
                                        f'<p>Thanks!</p>'
                                        f'<p>Luis Inga</p>'
-                                       f'<p><a href="https://www.luisingarivera.com" target="_blank">https://www.luisingarivera.com</a></p>')
+                                       f'<p><a href="https://www.luisingarivera.online" target="_blank">https://www.luisingarivera.online</a></p>')
                 msg = EmailMessage('Your new user details', message_email_html, 'lair60@yahoo.es', [email_user])
                 """
                 send_mail(
